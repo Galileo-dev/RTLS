@@ -6,8 +6,8 @@ class get_options:
     def __init__(self):
         self.conn = krpc.connect()
         self.vessel = self.conn.space_center.active_vessel
-        # self.get_height()
-        self.get_spin_up_time()
+        self.get_height()
+        # self.get_spin_up_time()
 
     def get_height(self):
 
