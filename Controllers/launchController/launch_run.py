@@ -84,3 +84,6 @@ class Launch:
             if self.apoapsis() > self.target_altitude*0.9:
                 print('Approaching target apoapsis')
                 break
+
+
+doLaunch = Launch()
