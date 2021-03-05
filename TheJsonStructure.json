@@ -1,0 +1,30 @@
+{
+    "flight": {
+      "verticalVelocity": 213.2,
+      "mass": 2000,
+      "engines":[
+        {
+          "partName": "LandingEngine1",
+          "thrust":2500,
+          "throttle":1,
+          "isOn":true
+        },
+        {
+          "partName": "LandingEngine2",
+          "thrust":2500,
+          "throttle":1,
+          "isOn":true
+        },
+        {
+          "partName": "LandingEngine3",
+          "thrust":0,
+          "throttle":0,
+          "isOn":false
+        }
+      ]
+    },
+    "hoverslamCalculations":{
+      "timeToBurn": 10.34,
+      "decelNeeded": 500
+    }
+  }
