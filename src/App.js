@@ -1,7 +1,7 @@
-import { subscribeToTelemetry, socket } from "./api";
+import { subscribeToTelemetry, socket } from "./api/apiUtils";
 import logo from "./logo.svg";
 import React from "react";
-import Dashboard from "./Dashboard";
+import Dashboard from "./components/Dashboard";
 import "./App.css";
 
 class App extends React.Component {
@@ -24,8 +24,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        This is the timer value: {JSON.stringify(this.state.telem)}
+        <p className="text-gray-500">
+          This is the timer value: {JSON.stringify(this.state.telem)}{" "}
+        </p>
         {/* <Dashboard /> */}
+        <Dashboard />
       </div>
     );
   }
