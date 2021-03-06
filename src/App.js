@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import React from "react";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
-
+import SensorCard from "./components/dashboard/Card";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   state = {
-    telem: "no timestamp yet",
+    telem: 0,
   };
 
   render() {
@@ -28,7 +28,7 @@ class App extends React.Component {
           This is the timer value: {JSON.stringify(this.state.telem)}{" "}
         </p>
         {/* <Dashboard /> */}
-        <Dashboard />
+        <Dashboard telem={this.state.telem} />
       </div>
     );
   }

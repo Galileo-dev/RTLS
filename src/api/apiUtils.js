@@ -9,6 +9,6 @@ const socket = openSocket("http://localhost:8000", {
 
 function subscribeToTelemetry(cb) {
   socket.on("telem", (telem) => cb(null, telem));
-  socket.emit("subscribeToTelemetry", 1000);
+  socket.emit("subscribeToTelemetry", 200);
 }
 export { subscribeToTelemetry, socket };
