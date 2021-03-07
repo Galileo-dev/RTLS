@@ -24,9 +24,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <p className="text-gray-500">
-          This is the timer value: {JSON.stringify(this.state.telem)}{" "}
-        </p>
         {/* <Dashboard /> */}
         <Dashboard telem={this.state.telem} />
       </div>

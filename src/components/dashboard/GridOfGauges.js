@@ -8,20 +8,9 @@ function GaugeGrid(props) {
         {/* <AnimatedGuage value={sping.smoothValue} /> */}
         {/* <SmoothGauge value={props.value} units="kg" label="Mass" /> */}
         <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
-        <GaugeCard value={props.value} units="kg" label="Mass" />
+        <GaugeCard value={props.value / 2} units="kg" label="Mass" />
+        <GaugeCard value={props.value / 1.5} units="kg" label="Mass" />
+        <GaugeCard value={props.value * 2} units="kg" label="Mass" />
         {/* <GaugeCard value={props.value} />
         <GaugeCard value={props.value} />
         <GaugeCard value={props.value} />
