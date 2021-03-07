@@ -2,6 +2,7 @@ import React from "react";
 import SensorCard from "./dashboard/Card";
 import { Checklist } from "./dashboard/Checklist";
 import { GaugeGrid } from "./dashboard/GridOfGauges";
+import { ProgressBarList } from "./dashboard/ProgressBar";
 
 export default function Dashboard(props) {
   return (
@@ -34,9 +35,9 @@ export default function Dashboard(props) {
       <GaugeGrid value={props.telem} />
 
       <div class="w-80 h-screen hidden sm:block">
-        <div class="flex flex-col justify-between h-screen p-4 px-12">
+        <div class="flex flex-col justify-between h-screen p-4">
           {/* check list */}
-          <Checklist />
+          <ProgressBarList value={props.telem} />
           {/* Launch / Abort Button */}
           <div class="flex p-3 text-white bg-red-500 rounded cursor-pointer text-center text-sm justify-center w-1/2 ">
             <button class="rounded inline-flex items-center ">
