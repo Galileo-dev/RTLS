@@ -1,26 +1,25 @@
 # Krpc landing scripts
 
-These scripts are used to land rocket in ksp using [krpc](https://github.com/krpc/krpc)
+These scripts are used to land rocket in ksp using [krpc](https://github.com/krpc/krpc).
 
 ## Installation
 
 Follow the [krpc installation guide](https://krpc.github.io/krpc/getting-started.html).
 
 
-Then install the python 3.x
+you need python 3.x
 <br />
 
-using a terminal input this command:
+using a terminal input this command to install krpc for python:
 ```bash
 pip install krpc   
-
 ```
 
 ## Usage
 
-inside the directory where ```hoverslam.py``` is located run:
+inside the main directory where ```run.py``` is located run:
 ```bash
-python hoverslam.py
+python run.py
 ```
 
 ## Contributing

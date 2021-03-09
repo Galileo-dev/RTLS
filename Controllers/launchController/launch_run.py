@@ -17,7 +17,6 @@ class Launch:
         self.add_streams()
         self.pre_launch_setup()
         self.count_down()
-        self.stage()
         self.lock_auto_pilot()
         self.do_ascent()
 
@@ -85,5 +84,9 @@ class Launch:
                 print('Approaching target apoapsis')
                 break
 
+                # Disable engines when target apoapsis is reache
+
+    def doCircularization(self):
+        circ = [self.ut + 30, 0]
 
 doLaunch = Launch()
