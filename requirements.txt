@@ -1,4 +1,5 @@
 setuptools
+pythonnet-2.5.2-cp39-cp39-win_amd64.whl
 pywebview
 pyinstaller; sys_platform != 'darwin'
 py2app; sys_platform == 'darwin'

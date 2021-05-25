@@ -1,22 +1,30 @@
-@import './styles/fonts.scss';
+@import "./styles/fonts.scss";
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 14pt;
   line-height: 130%;
   color: #2c3e50;
   background-color: white;
 }
 
-textarea {
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 14pt;
-  padding: 0.6rem;
+.App {
+  text-align: center;
+  background: linear-gradient(180deg, #14142d 66.92%, #43476f 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
 }
 
-
-h1, h2, h3 {
-  font-family: 'Roboto Condensed', 'Helvetica Neue', sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
 }
