@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import CustomDropDown from "../Lib/CustomDropDown";
+import CustomDropDown from "../../Lib/CustomDropDown";
 
 const options = [
   { name: "Jool" },
@@ -15,6 +15,8 @@ const defaultOption = options[0];
 
 function Planner() {
   const [ticker, setTicker] = React.useState("");
+  const [destinations, setDestination] = React.useState("");
+  const [selected_destination, setSelectedDestination] = React.useState("");
   React.useEffect(() => {
     window.addEventListener("pywebviewready", function () {
       if (!window.pywebview.state) {
@@ -22,6 +24,10 @@ function Planner() {
       }
       // Expose setTicker in order to call it from Python
       window.pywebview.state.setTicker = setTicker;
+
+      window.pywebview.api
+        .get_avail_destinations()
+        .then((res) => setDestination(res));
     });
   }, []);
 
@@ -33,15 +39,19 @@ function Planner() {
             <BoxContainer>
               <Title>Mission Planner</Title>
               <Label>Status: {ticker}</Label>
-              <Label>From:</Label>
+              {/* <Label>From:</Label>
               <CustomDropDown
                 options={options}
                 width="75%"
                 margin-bottom="50px"
-              />
+              /> */}
               {/* <StyledDropdown options={options}  className="arrow-"  value={defaultOption} placeholder="Select an option" ></StyledDropdown> */}
-              <Label>To:</Label>
-              <CustomDropDown options={options} width="75%" />
+              <Label>Desination:</Label>
+              {destinations.length ? (
+                <CustomDropDown options={destinations} width="75%" />
+              ) : (
+                <h1>Loading</h1>
+              )}
               <Submit
                 onClick={() => {
                   window.pywebview.api.set_window_size(700, 900);

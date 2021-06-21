@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from 'styled-components'
 
 
 import Header from './components/Header/Header'
-import Planner from './components/Planner/Planner'
+import Planner from './components/Menus/Planner/Planner'
 import Editor from './components/Editor/Editor'
 // import Ticker from './components/Ticker/Ticker'
 import {darkTheme} from './Theme'
@@ -18,7 +18,7 @@ const App = function() {
       <Header/>
       <Planner/>
       {/* <Ticker/> */}
-      <Editor/>
+      {/* <Editor/> */}
       </ThemeProvider>
     </div>
   )

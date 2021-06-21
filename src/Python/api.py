@@ -1,5 +1,6 @@
 import os
 import webview
+import json
 
 
 class Api:
@@ -20,3 +21,8 @@ class Api:
 
     def ls(self):
         return os.listdir('.')
+
+    def get_avail_destinations(self):
+        dicts = [{"name": "Jool"}, {"name": "Mun"}, {
+            "name": "Minmus"}, {"name": "Kerbin"}, {"name": "Leo"}]
+        return dicts
