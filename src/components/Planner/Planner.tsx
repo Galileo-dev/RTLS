@@ -1,47 +1,104 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
-import CustomDropDown from '../Lib/CustomDropDown';
+import * as React from "react";
+import styled from "styled-components";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+import CustomDropDown from "../Lib/CustomDropDown";
 
 const options = [
-  {name:"Jool"},{name:"Mun"},{name:"Minmus"},{name:"Kerbin"},{name:"Leo"}
+  { name: "Jool" },
+  { name: "Mun" },
+  { name: "Minmus" },
+  { name: "Kerbin" },
+  { name: "Leo" },
 ];
 const defaultOption = options[0];
 
-
 function Planner() {
-    return (
-        <Container>
-        <Content>
-          <Box>
-            <OutLinedBox width="75%">
-                <BoxContainer>
-                <Title>Mission Planner</Title>
-                <Label>From:</Label>  
-                <CustomDropDown options={options} width="50%"/>
-                {/* <StyledDropdown options={options}  className="arrow-"  value={defaultOption} placeholder="Select an option" ></StyledDropdown> */}
-                <Label>To:</Label>
-                <CustomDropDown options={options} />
-                </BoxContainer>
-            </OutLinedBox>
-          </Box>
-        </Content>
-      </Container>
-    )
+  const [ticker, setTicker] = React.useState("");
+  React.useEffect(() => {
+    window.addEventListener("pywebviewready", function () {
+      if (!window.pywebview.state) {
+        window.pywebview.state = {};
+      }
+      // Expose setTicker in order to call it from Python
+      window.pywebview.state.setTicker = setTicker;
+    });
+  }, []);
+
+  return (
+    <Container>
+      <Content>
+        <Box>
+          <OutLinedBox width="75%">
+            <BoxContainer>
+              <Title>Mission Planner</Title>
+              <Label>Status: {ticker}</Label>
+              <Label>From:</Label>
+              <CustomDropDown
+                options={options}
+                width="75%"
+                margin-bottom="50px"
+              />
+              {/* <StyledDropdown options={options}  className="arrow-"  value={defaultOption} placeholder="Select an option" ></StyledDropdown> */}
+              <Label>To:</Label>
+              <CustomDropDown options={options} width="75%" />
+              <Submit
+                onClick={() => {
+                  window.pywebview.api.set_window_size(700, 900);
+                }}
+              >
+                Plan
+              </Submit>
+            </BoxContainer>
+          </OutLinedBox>
+        </Box>
+      </Content>
+    </Container>
+  );
 }
 
+const Submit = styled.button`
+  font-weight: bold;
+  color: #f9f9f9;
+  border-radius: 35px;
+  background-color: #0063e5;
+  margin: 12px;
+  margin-top: 20px;
+  width: 6em;
+  border: 1px solid transparent;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+
+  padding: 12px;
+  transition: all 0.2s ease 0s;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+  &:hover {
+    background-color: #0483ee;
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
 const Title = styled.h1`
-text-align: center;
-`
+  text-align: center;
+`;
 
 const Label = styled.p`
-    text-align: left;
-    letter-spacing: 2px;
-    color: ${props => props.theme.label};
-    margin: 5px;
-
-`
+  text-align: left;
+  letter-spacing: 2px;
+  color: ${(props) => props.theme.label};
+  margin: 5px;
+`;
 
 const Container = styled.section`
   overflow: hidden;
@@ -68,8 +125,7 @@ const Content = styled.section`
 const StyledDropdown = styled(Dropdown)`
   text-align: left;
   font-weight: bolder;
-  
-`
+`;
 
 const Box = styled.div`
   max-width: 650px;
@@ -89,11 +145,11 @@ const Box = styled.div`
 const OutLinedBox = styled.div`
   font-weight: normal;
   color: #f9f9f9;
-  background-color: #1A1C48;
+  background-color: #1a1c48;
   width: ${(props) => props.width};
   border-radius: 15px;
-  border: 2px solid ${props => props.theme.toggleBorder};
-  letter-spacing: 1.5px;    
+  border: 2px solid ${(props) => props.theme.toggleBorder};
+  letter-spacing: 1.5px;
   font-size: 18px;
   padding: 5px;
 `;
@@ -102,7 +158,7 @@ const OutLinedInputBox = styled.input`
   width: 90%;
   padding: 20px;
   border-radius: 50px;
-  border: 2px solid ${props => props.theme.toggleBorder};
+  border: 2px solid ${(props) => props.theme.toggleBorder};
   background-color: #131313;
   color: #f9f9f9;
   margin: 10px;
@@ -113,7 +169,7 @@ const OutLinedInputBox = styled.input`
 `;
 
 const BoxContainer = styled.div`
-    padding: 5px 15px;
+  padding: 5px 15px;
 `;
 
-export default Planner
+export default Planner;
