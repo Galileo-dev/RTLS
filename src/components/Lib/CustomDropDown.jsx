@@ -67,11 +67,11 @@ const ListItem = styled.li`
 
 const CustomDropDown = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(props.options[0]);
-  const toggling = () => setIsOpen(!isOpen);
   
+  const toggling = () => setIsOpen(!isOpen);
+  const [selectedOption, setSelectedOption] = useState(props.options[0]);
   const AvailbeToSelect = props.options.filter(CurrentOptions => CurrentOptions.name !== selectedOption.name);
-
+  
   const onOptionClicked = (value, key) => () => {
     // var valueAndKey = []
     // valueAndKey.push(...value)
